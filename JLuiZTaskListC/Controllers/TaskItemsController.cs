@@ -12,6 +12,9 @@ using JLuiZTaskListC.Models;
 
 namespace JLuiZTaskListC.Controllers
 {
+    /// <summary>
+    /// The controller responsible for handling task data
+    /// </summary>
     public class TaskItemsController : ApiController
     {
         private MyContext db = new MyContext();
@@ -40,6 +43,11 @@ namespace JLuiZTaskListC.Controllers
         }
 
 
+        /// <summary>
+        /// Get an specific task by it's Id.
+        /// </summary>
+        /// <param name="id">The of the task desired</param>
+        /// <returns></returns>
         // GET: api/TaskItems/5
         [ResponseType(typeof(TaskItem))]
         public IHttpActionResult GetTaskItem(int id)
@@ -165,7 +173,11 @@ namespace JLuiZTaskListC.Controllers
 
         
 
-
+        /// <summary>
+        /// Deletes a specific task by the ID
+        /// </summary>
+        /// <param name="id">The Id that shall be deleted</param>
+        /// <returns></returns>
         // DELETE: api/TaskItems/5
         [ResponseType(typeof(TaskItem))]
         public IHttpActionResult DeleteTaskItem(int id)
