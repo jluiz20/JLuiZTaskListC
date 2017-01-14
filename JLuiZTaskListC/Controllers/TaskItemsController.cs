@@ -15,12 +15,30 @@ namespace JLuiZTaskListC.Controllers
     public class TaskItemsController : ApiController
     {
         private MyContext db = new MyContext();
-
+         /// <summary>
+         /// Returns all the task unfiltered
+         /// </summary>
+         /// <returns></returns>
         // GET: api/TaskItems
         public IQueryable<TaskItem> GetTaskItems()
         {
             return db.TaskItems;
         }
+
+
+        /// <summary>
+        /// Get only the tasks with the desired status
+        /// </summary>
+        /// <param name="done">The desired status</param>
+        /// <returns></returns>
+        // GET: api/TaskItems
+        public IQueryable<TaskItem> GetTaskItemsByStatus(bool done)
+        {
+            return from b in db.TaskItems
+                   where b.Done == done
+                   select b; 
+        }
+
 
         // GET: api/TaskItems/5
         [ResponseType(typeof(TaskItem))]
