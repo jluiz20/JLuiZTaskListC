@@ -11,5 +11,7 @@ namespace JLuiZTaskListC.Models
         public MyContext() : base("name=MyContext")
         {
         }
+
+        public System.Data.Entity.DbSet<JLuiZTaskListC.Models.TaskItem> TaskItems { get; set; }
     }
 }
